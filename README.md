@@ -9,3 +9,8 @@ j
 ## subheader
 
 what xyz
+
+##local development
+
+1. open index.html
+git
