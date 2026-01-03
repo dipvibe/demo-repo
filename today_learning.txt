@@ -1,0 +1,243 @@
+==============================
+Git & GitHub Learning Summary
+==============================
+
+Date: Today
+User: Dipanjan Roy
+
+--------------------------------
+1. What Git Is
+--------------------------------
+Git is a version control system.
+It tracks changes in files over time.
+It allows going back to previous versions safely.
+
+Git works LOCALLY.
+GitHub is a REMOTE server where repositories are stored.
+
+--------------------------------
+2. Repository Basics
+--------------------------------
+
+git clone <repo-url>
+- Copies a remote repository to the local computer.
+
+git init
+- Creates a NEW git repository.
+- Should be used ONLY once and ONLY in an empty project folder.
+- Never use inside an already cloned repo.
+
+.git folder
+- Hidden folder that stores git history and configuration.
+- Deleting it removes git tracking.
+
+--------------------------------
+3. File States in Git
+--------------------------------
+
+Untracked:
+- File exists but git is not tracking it yet.
+
+Staged:
+- File is selected to be included in the next commit.
+
+Committed:
+- File changes are saved permanently in git history.
+
+--------------------------------
+4. Checking Repository Status
+--------------------------------
+
+git status
+- Shows:
+  - current branch
+  - modified files
+  - staged files
+  - untracked files
+- MOST IMPORTANT command in git.
+
+--------------------------------
+5. Adding Files
+--------------------------------
+
+git add <file>
+- Stages a specific file.
+
+git add .
+- Stages ALL changes in the current directory.
+
+git add -p
+- Interactive staging (choose parts of a file).
+
+--------------------------------
+6. Committing Changes
+--------------------------------
+
+git commit -m "message"
+- Saves staged changes to git history.
+
+git commit -am "message"
+- Stages and commits tracked files ONLY.
+- Does NOT include new files.
+- SHOULD NOT be used during merge conflicts.
+
+--------------------------------
+7. Branching
+--------------------------------
+
+git branch
+- Lists all branches.
+- * indicates current branch.
+
+git checkout -b <branch-name>
+- Creates a new branch and switches to it.
+
+git checkout <branch-name>
+- Switches to another branch.
+
+git branch -d <branch-name>
+- Deletes a branch safely (after merge).
+
+Rules:
+- Never work directly on main.
+- Always create a feature branch.
+
+--------------------------------
+8. Remote Repositories
+--------------------------------
+
+origin
+- Default name of the remote repository (GitHub).
+
+main
+- Default branch name (modern Git).
+
+master
+- Old default branch name.
+
+--------------------------------
+9. Pushing to GitHub
+--------------------------------
+
+git push
+- Pushes current branch to its upstream branch.
+
+git push origin main
+- Explicitly pushes main to GitHub.
+
+git push -u origin <branch-name>
+- Pushes branch and sets upstream.
+- Required the first time a new branch is pushed.
+
+--------------------------------
+10. Merge
+--------------------------------
+
+git merge <branch-name>
+- Combines another branch into the current branch.
+
+Fast-forward merge:
+- Happens when no conflict exists.
+
+--------------------------------
+11. Merge Conflicts
+--------------------------------
+
+Merge conflict happens when:
+- Same file is changed in two branches.
+
+Conflict markers look like:
+
+<<<<<<< HEAD
+code from current branch
+=======
+code from other branch
+>>>>>>> branch-name
+
+Correct way to resolve:
+1. Open the conflicted file.
+2. Decide what to keep.
+3. Remove ALL conflict markers.
+4. git add <file>
+5. git commit
+
+IMPORTANT:
+- Never use `git commit -am` during conflicts.
+
+--------------------------------
+12. Undo & Recovery
+--------------------------------
+
+git merge --abort
+- Cancels an ongoing merge.
+
+git reset --hard <commit-hash>
+- Resets branch to a previous commit.
+- Safe ONLY if changes are not pushed.
+
+git log --oneline
+- Shows commit history in short format.
+
+--------------------------------
+13. Diff (See Changes)
+--------------------------------
+
+git diff
+- Shows unstaged changes.
+
+git diff --staged
+- Shows staged changes.
+
+git diff branch1..branch2
+- Compares two branches.
+
+--------------------------------
+14. SSH & GitHub Authentication
+--------------------------------
+
+Public Key:
+- Shared with GitHub.
+- Used for identification.
+
+Private Key:
+- Stays on local machine.
+- Must NEVER be shared.
+
+ssh -T git@github.com
+- Tests SSH connection.
+
+SSH allows:
+- Password-free git push & pull.
+
+--------------------------------
+15. Git Pager
+--------------------------------
+
+Some git commands open a viewer (pager).
+
+To exit:
+- Press `q`
+
+--------------------------------
+16. Common Mistakes Learned
+--------------------------------
+
+- Typo commands (git satus).
+- Using git checkout origin.
+- Pushing master instead of main.
+- Running git init inside cloned repo.
+- Committing during merge conflicts.
+
+--------------------------------
+17. Golden Rules
+--------------------------------
+
+- Always run git status before commit.
+- Always know which branch you are on.
+- Never panic; git history is recoverable.
+- Do not blindly follow old tutorials.
+
+==============================
+END OF SUMMARY
+==============================
+
