@@ -14,3 +14,8 @@ what xyz
 
 1. open index.html
 git
+
+## locak development 2 
+afiubfwis
+
+git 
